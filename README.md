@@ -1,5 +1,5 @@
 # SinKingMusicSnalysis
-因近期音乐项目需要用到音乐解析，c#音乐解析资源较少，便自己写了一个，支持酷狗音乐、网易云英语、QQ音乐、咪咕音乐歌曲信息解析及搜索等，使用.net core编写，支持macos linux win等平台
+因近期音乐项目需要用到音乐解析，c#音乐解析资源较少，便自己写了一个，支持酷狗音乐、网易云音乐、QQ音乐、咪咕音乐歌曲信息解析及搜索等，使用.net core编写，支持macos linux win等平台
 ### 使用方法
 ##### 1.导入DLL
 导入SinKingMusicSnalysis项目中的程序SinKingMusicSnalysis.dll即可
