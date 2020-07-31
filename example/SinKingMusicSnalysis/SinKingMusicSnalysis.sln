@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29418.71
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SinKingMusicSnalysis", "SinKingMusicSnalysis.csproj", "{A1344061-91B3-4A3E-958D-749EAC3CADBC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "..\ConsoleApp1\ConsoleApp1.csproj", "{CB45DA7E-56C7-48E5-B229-F5F887C25D7C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A1344061-91B3-4A3E-958D-749EAC3CADBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1344061-91B3-4A3E-958D-749EAC3CADBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1344061-91B3-4A3E-958D-749EAC3CADBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1344061-91B3-4A3E-958D-749EAC3CADBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB45DA7E-56C7-48E5-B229-F5F887C25D7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB45DA7E-56C7-48E5-B229-F5F887C25D7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB45DA7E-56C7-48E5-B229-F5F887C25D7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB45DA7E-56C7-48E5-B229-F5F887C25D7C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {87B3E5AA-3F83-4B2F-97F8-B04B66C0D656}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "aUXODDutvaF1pbpTnOUBQHVE5Y+zov4NNGXLQ+Fx4RDkpwHf+qJ1+ZXj9vRzOczjui3Cg5Q0bsMrlKMs3xIu3g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\admin\\Desktop\\ConsoleApp1\\ConsoleApp1.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\admin\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\sharpziplib\\1.2.0\\sharpziplib.1.2.0.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\system.security.cryptography.openssl\\5.0.0-preview.3.20214.6\\system.security.cryptography.openssl.5.0.0-preview.3.20214.6.nupkg.sha512"
+  ],
+  "logs": []
+}

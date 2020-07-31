@@ -1,0 +1,8 @@
+C:\Users\admin\Desktop\SinKingMusicSnalysis\bin\Debug\netcoreapp3.1\SinKingMusicSnalysis.deps.json
+C:\Users\admin\Desktop\SinKingMusicSnalysis\bin\Debug\netcoreapp3.1\SinKingMusicSnalysis.dll
+C:\Users\admin\Desktop\SinKingMusicSnalysis\bin\Debug\netcoreapp3.1\SinKingMusicSnalysis.pdb
+C:\Users\admin\Desktop\SinKingMusicSnalysis\obj\Debug\netcoreapp3.1\SinKingMusicSnalysis.AssemblyInfoInputs.cache
+C:\Users\admin\Desktop\SinKingMusicSnalysis\obj\Debug\netcoreapp3.1\SinKingMusicSnalysis.AssemblyInfo.cs
+C:\Users\admin\Desktop\SinKingMusicSnalysis\obj\Debug\netcoreapp3.1\SinKingMusicSnalysis.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\SinKingMusicSnalysis\obj\Debug\netcoreapp3.1\SinKingMusicSnalysis.dll
+C:\Users\admin\Desktop\SinKingMusicSnalysis\obj\Debug\netcoreapp3.1\SinKingMusicSnalysis.pdb

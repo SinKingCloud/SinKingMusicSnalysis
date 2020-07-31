@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "pTjcc9UIIJGMM6hx6VzR4ETi8YIiiHHk/mQAig7E7yBLHRNHmoWlaTS/eHYWfD27nAO4cIjAnxkShvgHcdpQ2A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\admin\\Desktop\\SinKingMusicSnalysis\\SinKingMusicSnalysis.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\admin\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\sharpziplib\\1.2.0\\sharpziplib.1.2.0.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\system.security.cryptography.openssl\\5.0.0-preview.3.20214.6\\system.security.cryptography.openssl.5.0.0-preview.3.20214.6.nupkg.sha512"
+  ],
+  "logs": []
+}
