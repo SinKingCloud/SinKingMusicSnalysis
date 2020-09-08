@@ -44,7 +44,7 @@ namespace SinKingMusicSnalysis
                     SongName = item["songName"].ToString(),
                     SingerName = item["singerName"].ToString(),
                     Lrc = lrc ? Lrc(item["copyrightId"].ToString()) : "",
-                    Url = item["mp3"].ToString().Replace("http://","https://"),
+                    Url = item["mp3"].ToString().Replace("http://", "https://"),
                     Logo = item["cover"].ToString(),
                     AlbumName = item["albumName"].ToString()
                 };
@@ -62,35 +62,44 @@ namespace SinKingMusicSnalysis
         {
             MusicInfo music = new MusicInfo();
             Http http = new Http();
-            string res = http.Send("https://m.music.migu.cn/migu/remoting/cms_detail_tag?cpid=" + SongID);
-            JObject data = JObject.Parse(res);
-            if (string.IsNullOrEmpty(data["data"].ToString()) || string.IsNullOrEmpty(data["data"]["songId"].ToString()))
+            http.gzip = false;
+            string res = http.Send("http://m.music.migu.cn/migu/remoting/cms_detail_tag?cpid=" + SongID);
+            try
             {
+                JObject data = JObject.Parse(res);
+                if (string.IsNullOrEmpty(data["data"].ToString()) || string.IsNullOrEmpty(data["data"]["songId"].ToString()))
+                {
+                    return music;
+                }
+                string songID = data["data"]["songId"].ToString();
+                string lrcText = data["data"]["lyricLrc"].ToString();
+                string logo = data["data"]["picS"].ToString();
+                string url = "http://app.c.nf.migu.cn/MIGUM2.0/v2.0/content/listen-url";
+                string post = "netType=01&resourceType=E&songId=" + songID + "&toneFlag=PQ&dataType=2";
+                string referer = "https://music.migu.cn/v3/music/player/audio";
+                string[] header = new string[] {
+                    "Content-Type:application/x-www-form-urlencoded",
+                    "channel:0146951"
+                };
+                http.gzip = true;
+                res = http.Send(url, post, referer, null, header);
+                data = JObject.Parse(res);
+                music.Type = "MiGu";
+                music.Link = "https://music.migu.cn/v3/music/song/" + SongID;
+                music.SongID = SongID;
+                music.SongName = data["data"]["songItem"]["songName"].ToString();
+                music.SingerName = data["data"]["songItem"]["singer"].ToString();
+                music.Lrc = lrc ? lrcText : "";
+                music.Url = data["data"]["url"].ToString().Replace("http://", "https://");
+                music.Logo = logo;
+                music.AlbumName = data["data"]["songItem"]["album"].ToString();
                 return music;
             }
-            string songID = data["data"]["songId"].ToString();
-            string lrcText = data["data"]["lyricLrc"].ToString();
-            string logo = data["data"]["picS"].ToString();
-            string url = "http://app.c.nf.migu.cn/MIGUM2.0/v2.0/content/listen-url";
-            string post = "netType=01&resourceType=E&songId=" + songID + "&toneFlag=PQ&dataType=2";
-            string referer = "https://music.migu.cn/v3/music/player/audio";
-            string[] header = new string[] {
-                "Content-Type:application/x-www-form-urlencoded",
-                "channel:0146951"
-            };
-            http.gzip = true;
-            res = http.Send(url, post, referer, null, header);
-            data = JObject.Parse(res);
-            music.Type = "MiGu";
-            music.Link = "https://music.migu.cn/v3/music/song/" + SongID;
-            music.SongID = SongID;
-            music.SongName = data["data"]["songItem"]["songName"].ToString();
-            music.SingerName = data["data"]["songItem"]["singer"].ToString();
-            music.Lrc = lrc ? lrcText : "";
-            music.Url = data["data"]["url"].ToString().Replace("http://", "https://");
-            music.Logo = logo;
-            music.AlbumName = data["data"]["songItem"]["album"].ToString();
-            return music;
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return music;
+            }
         }
         /// <summary>
         /// 歌词获取

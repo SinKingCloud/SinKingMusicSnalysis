@@ -2,11 +2,6 @@
 using SinKingMusicSnalysis.Common;
 using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Security.Cryptography;
-using Newtonsoft.Json;
-using ICSharpCode.SharpZipLib.Zip.Compression.Streams;
-using System.IO;
 
 namespace SinKingMusicSnalysis
 {
@@ -126,9 +121,9 @@ namespace SinKingMusicSnalysis
             http.gzip = true;
             string res = http.Send(url, post, refer, null, headers, ua);
             MusicInfo music = new MusicInfo();
-            JObject data = JObject.Parse(res);
             try
             {
+                JObject data = JObject.Parse(res);
                 JToken info = data["songs"][0];
                 if (string.IsNullOrEmpty(info.ToString()))
                 {
@@ -146,9 +141,15 @@ namespace SinKingMusicSnalysis
                 music.SongName = info["name"].ToString();
                 music.SingerName = author;
                 music.Lrc = lrc ? Lrc(info["id"].ToString()) : "";
-                http.AllowAutoRedirect = false;
-                http.Send("http://music.163.com/song/media/outer/url?id=" + info["id"].ToString() + ".mp3");
-                music.Url = http.Headers["location"].Replace("http://", "https://");
+                try
+                {
+                    string ress =  http.Send("http://music.163.com/song/media/outer/url?id=" + info["id"].ToString() + ".mp3");
+                    music.Url = http.Headers["location"].Replace("http://", "https://");
+                }
+                catch
+                {
+                    music.Url = "http://music.163.com/song/media/outer/url?id=" + info["id"].ToString() + ".mp3";
+                }
                 music.Logo = info["album"]["picUrl"].ToString() + "?param=100x100";
                 music.AlbumName = info["album"]["name"].ToString();
                 return music;

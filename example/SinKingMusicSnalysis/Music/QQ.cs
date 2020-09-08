@@ -88,9 +88,9 @@ namespace SinKingMusicSnalysis
             string ua = "Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1";
             string res = http.Send(url + get, null, refer, null, null, ua);
             MusicInfo music = new MusicInfo();
-            JObject data = JObject.Parse(res);
             try
             {
+                JObject data = JObject.Parse(res);
                 JToken info = data["data"][0];
                 if (string.IsNullOrEmpty(info.ToString()))
                 {
@@ -125,8 +125,8 @@ namespace SinKingMusicSnalysis
         private static string Url(string SongID)
         {
             Http http = new Http();
-            string url = "https://u.y.qq.com/cgi-bin/musicu.fcg";
-            string refer = "https://y.qq.com/portal/player.html";
+            string url = "http://u.y.qq.com/cgi-bin/musicu.fcg";
+            string refer = "http://y.qq.com/portal/player.html";
             string ua = "Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1";
             Dictionary<object, object> datas = new Dictionary<object, object>();
             string guid = new Random().Next(111111111, 999999999).ToString();
@@ -161,10 +161,10 @@ namespace SinKingMusicSnalysis
                 {"ct",24 },
                 {"cv",0 }
             });
+            string get = "?data=" + JsonConvert.SerializeObject(datas);
+            string res = http.Send(url + get, null, refer, null, null, ua);
             try
             {
-                string get = "?data=" + JsonConvert.SerializeObject(datas);
-                string res = http.Send(url + get, null, refer, null, null, ua);
                 JObject data = JObject.Parse(res);
                 if (data["code"].ToString().Equals("0"))
                 {
@@ -177,7 +177,6 @@ namespace SinKingMusicSnalysis
             }
             catch
             {
-
                 return "";
             }
         }

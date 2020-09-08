@@ -2,6 +2,9 @@
 using SinKingMusicSnalysis;
 using System.Collections.Generic;
 using System.Text;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using SinKingMusicSnalysis.Common;
 
 namespace ConsoleApp1
 {
@@ -9,23 +12,18 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-
-            /*MusicInfo music = MiGu.Song("60054701923",false);
-            Console.WriteLine(music.SongName);
-            Console.WriteLine(music.SingerName);
-            Console.WriteLine(music.AlbumName);
-            Console.WriteLine(music.Link);
-            Console.WriteLine(music.Logo);
-            Console.WriteLine(music.Lrc);
-            Console.WriteLine(music.Type);
-            Console.WriteLine(music.Url);*/
-            List<MusicInfo> list = MiGu.Search("周杰伦");
-            foreach (var music in list)
-            {
-                Console.WriteLine(music.SongName);
-                Console.WriteLine(music.Url);
-                Console.WriteLine("");
-            }
+            MusicInfo music = NetEase.Song("1344897943", false);
+            string test = JsonConvert.SerializeObject(new { Code = 1, Msg = "获取成功！", Data = music });
+            Console.WriteLine(test);
+            MusicInfo music1 = QQ.Song("002w57E00BGzXn", false);
+             test = JsonConvert.SerializeObject(new { Code = 1, Msg = "获取成功！", Data = music1 });
+            Console.WriteLine(test);
+            MusicInfo music2 = KuGou.Song("E032025080D9ACB5F5ACD5918D8A1758", false);
+             test = JsonConvert.SerializeObject(new { Code = 1, Msg = "获取成功！", Data = music2 });
+            Console.WriteLine(test);
+            MusicInfo music3 = MiGu.Song("60054704037",false);
+             test = JsonConvert.SerializeObject(new { Code = 1, Msg = "获取成功！", Data = music3 });
+            Console.WriteLine(test);
         }
     }
 }
